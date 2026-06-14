@@ -63,13 +63,13 @@
       desc: "关闭打开应用时的开屏广告",
       order: -10,
       fastQuery: true,
-      matchTime: 10000,
+      matchTime: 5000,
       actionMaximum: 2,
       resetMatch: "app",
-      forcedTime: 10000,
+      forcedTime: 5000,
       actionCdKey: 0,
       actionMaximumKey: 0,
-      priorityTime: 10000,
+      priorityTime: 5000,
       disableIfAppGroupMatch: "开屏广告",
       rules: [
         {
