@@ -1,0 +1,44 @@
+{
+  id: 10086,
+  name: "我的自定义短剧订阅",
+  version: 1,
+  author: "denis",
+  apps: [
+    {
+      id: "com.ss.android.ugc.aweme",
+      name: "抖音",
+      groups: [
+        {
+          key: 10,
+          name: "自动上滑继续观看短剧",
+          rules: [
+            {
+              matches: '[text*="上滑继续观看短剧"]',
+              action: 'swipe',
+              actionCd: 3000,
+              swipeArg: {
+                start: { x: 'screenWidth * 0.5', y: 'screenHeight * 0.8' },
+                end: { x: 'screenWidth * 0.5', y: 'screenHeight * 0.2' },
+                duration: 800
+              }
+            }
+          ]
+        },
+        {
+          key: 11,
+          name: "短剧倒计时结束自动点击选集",
+          rules: [
+            {
+              key: 0,
+              matches: [
+                '[text*="1秒后进入广告"]',
+                '[id="com.ss.android.ugc.aweme:id/arrow"]'
+              ],
+              actionDelay: 1000
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
