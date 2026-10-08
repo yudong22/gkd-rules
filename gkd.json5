@@ -107,8 +107,8 @@
             {
               key: 3,
               action: "swipe",
-              actionDelay: 1000,
               actionCd: 4000,
+              actionDelay: 800,
               name: '第1步：跳过小游戏',
               swipeArg: {
                 start: {
