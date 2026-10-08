@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 5,
+  version: 6,
   author: "denis",
   apps: [
     {
@@ -60,6 +60,35 @@
       name: "红果免费短剧",
       groups: [
         {
+          key: 2,
+          name: "跳过小游戏",
+          activityIds: [
+            "com.dragon.read.component.shortvideo.impl.ShortSeriesActivity",
+            "com.dragon.read.component.shortvideo.impl.fullscreen.ShortSeriesLandActivity",
+          ],
+          rules: [
+            {
+              key: 3,
+              action: "swipe",
+              actionCd: 4000,
+              actionDelay: 900,
+              name: '第1步：跳过小游戏',
+              swipeArg: {
+                start: {
+                  x: "screenWidth * 0.5",
+                  y: "screenHeight * 0.8",
+                },
+                end: {
+                  x: "screenWidth * 0.5",
+                  y: "screenHeight * 0.5",
+                },
+                duration: 150,
+              },
+              matches: '[name="androidx.viewpager.widget.ViewPager"] > [name="androidx.recyclerview.widget.RecyclerView"] > FrameLayout[visibleToUser=true][childCount=1]',
+            }
+          ]
+        },
+        {
           key: 1,
           name: "短剧广告自动上滑跳过已启动",
           desc: "红果短剧的广告是无跳过按钮的全屏视频，读秒结束后/广告出现时自动上滑进入下一集",
@@ -72,14 +101,13 @@
               key: 0,
               name: "第1步：即将进入广告",
               matches: [
-                '[text="返回并退出"]',
-                '[vid="root_layout"][visibleToUser=true]',
+                '[text="1s后即将进入广告"][visibleToUser=true]',
               ],
               actionCd: 5000,
             },
             {
               key: 1,
-              name: "第2步：读秒结束后上滑继续观看",
+              name: "并行的 hack,第2步：读秒结束后上滑继续观看",
               matches:
                 '[text="上滑继续观看短剧" || text="上滑继续观看剧集"][visibleToUser=true]',
               action: "swipe",
@@ -100,29 +128,11 @@
               key: 2,
               preKeys: [0],
               name: '第3步：选择下一集',
-              matches: 'LinearLayout[childCount=4 || childCount=5] > ViewGroup[height>100][index=2]',
+              matches: '[name="android.widget.LinearLayout"][childCount=2] > [name="android.widget.GridView"] > [name="android.view.ViewGroup"][childCount=2] + [name="android.view.ViewGroup"]',
               actionCd: 5000,
               actionDelay: 1000,
             },
-            {
-              key: 3,
-              action: "swipe",
-              actionCd: 4000,
-              actionDelay: 800,
-              name: '第1步：跳过小游戏',
-              swipeArg: {
-                start: {
-                  x: "screenWidth * 0.5",
-                  y: "screenHeight * 0.8",
-                },
-                end: {
-                  x: "screenWidth * 0.5",
-                  y: "screenHeight * 0.2",
-                },
-                duration: 100,
-              },
-              matches: '[name="androidx.viewpager.widget.ViewPager"] > [name="androidx.recyclerview.widget.RecyclerView"] > FrameLayout[visibleToUser=true][childCount=1]',
-            }
+
           ],
         },
       ],
