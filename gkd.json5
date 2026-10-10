@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 9,
+  version: 10,
   author: "denis",
   apps: [
     {
@@ -60,7 +60,7 @@
       name: "红果免费短剧",
       groups: [
         {
-          key: 2,
+          key: 1,
           name: "跳过小游戏",
           activityIds: [
             "com.dragon.read.component.shortvideo.impl.ShortSeriesActivity",
@@ -68,29 +68,31 @@
           ],
           rules: [
             {
-              key: 3,
+              key: 0,
               action: "swipe",
               actionCd: 4000,
               actionDelay: 900,
-              name: '没匹配倒计时-跳过小游戏',
+              name: '没匹配倒计时-跳过短剧/小游戏',
               swipeArg: {
                 start: {
-                  x: "screenWidth * 0.5",
+                  x: "screenWidth * 0.6",
                   y: "screenHeight * 0.8",
                 },
                 end: {
-                  x: "screenWidth * 0.5",
+                  x: "screenWidth * 0.6",
                   y: "screenHeight * 0.5",
                 },
                 duration: 150,
               },
-              matches: '[vid="root_view"] >n ViewPager > RecyclerView > FrameLayout[visibleToUser=true][childCount=1]',
-
+              matches: [
+                '[text="上滑继续观看短剧"]',
+                '[vid="root_view"] >n RecyclerView[childCount=3] > FrameLayout[visibleToUser=true][childCount=1]',
+              ],
             }
           ]
         },
         {
-          key: 1,
+          key: 2,
           name: "短剧广告自动上滑跳过已启动",
           desc: "红果短剧的广告是无跳过按钮的全屏视频，读秒结束后/广告出现时自动上滑进入下一集",
           activityIds: [
@@ -102,7 +104,7 @@
               key: 0,
               name: "第1步：即将进入倒计时广告，尝试跳过",
               matches: [
-                '[text$="后即将进入广告"]',
+                '[text$="即将进入广告"]',
               ],
               actionCd: 5000,
             },
