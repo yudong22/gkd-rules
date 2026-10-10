@@ -84,7 +84,8 @@
                 },
                 duration: 150,
               },
-              matches: '[vid="root_view"] > [name = "android.widget.FrameLayout"][childCount=1] > [name="androidx.viewpager.widget.ViewPager"] > [name="androidx.recyclerview.widget.RecyclerView"] > FrameLayout[visibleToUser=true][childCount=1]',
+              matches: '[vid="root_view"] >n ViewPager > RecyclerView > FrameLayout[visibleToUser=true][childCount=1]',
+
             }
           ]
         },
