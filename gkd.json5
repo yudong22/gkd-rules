@@ -68,10 +68,9 @@
           ],
           rules: [
             {
-              key: 0,
+              key: 1,
               action: "swipe",
-              actionCd: 4000,
-              actionDelay: 900,
+              actionCd: 3000,
               name: '没匹配倒计时-跳过短剧/小游戏',
               swipeArg: {
                 start: {
@@ -82,7 +81,7 @@
                   x: "screenWidth * 0.6",
                   y: "screenHeight * 0.5",
                 },
-                duration: 150,
+                duration: 100,
               },
               matches: [
                 '[text="上滑继续观看短剧"]',
