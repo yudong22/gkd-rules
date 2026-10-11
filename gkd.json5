@@ -87,7 +87,7 @@
               },
               matches: [
                 '[text="上滑继续观看短剧"][visibleToUser=true]',
-                '[vid="hi"][visibleToUser=true]',
+                'FrameLayout[vid="container"][childCount=1][visibleToUser=true]',
               ],
             }
           ]
@@ -117,7 +117,7 @@
               name: '第2步：选择下一集',
               matches: '[name="android.widget.LinearLayout"][childCount=2] > [name="android.widget.GridView"] > [name="android.view.ViewGroup"][childCount=2] + [name="android.view.ViewGroup"]',
               actionCd: 5000,
-              actionDelay: 1000,
+              actionDelay: 900,
             },
           ],
         },
