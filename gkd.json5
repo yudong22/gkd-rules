@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 10,
+  version: 11,
   author: "denis",
   apps: [
     {
@@ -61,6 +61,8 @@
       groups: [
         {
           key: 1,
+          actionCdKey: 1,
+          fastQuery: true,
           name: "跳过小游戏",
           activityIds: [
             "com.dragon.read.component.shortvideo.impl.ShortSeriesActivity",
@@ -68,30 +70,32 @@
           ],
           rules: [
             {
-              key: 1,
               action: "swipe",
-              actionCd: 3000,
+              actionCd: 5000,
+              actionDelay: 500,
               name: '没匹配倒计时-跳过短剧/小游戏',
               swipeArg: {
                 start: {
-                  x: "screenWidth * 0.6",
+                  x: "screenWidth * 0.7",
                   y: "screenHeight * 0.8",
                 },
                 end: {
-                  x: "screenWidth * 0.6",
-                  y: "screenHeight * 0.5",
+                  x: "screenWidth * 0.7",
+                  y: "screenHeight * 0.6",
                 },
                 duration: 100,
               },
               matches: [
-                '[text="上滑继续观看短剧"]',
-                '[vid="root_view"] >n RecyclerView[childCount=3] > FrameLayout[visibleToUser=true][childCount=1]',
+                '[text="上滑继续观看短剧"][visibleToUser=true]',
+                '[vid="hi"][visibleToUser=true]',
               ],
             }
           ]
         },
         {
           key: 2,
+          actionCdKey: 1,
+          fastQuery: true,
           name: "短剧广告自动上滑跳过已启动",
           desc: "红果短剧的广告是无跳过按钮的全屏视频，读秒结束后/广告出现时自动上滑进入下一集",
           activityIds: [
@@ -100,7 +104,7 @@
           ],
           rules: [
             {
-              key: 0,
+              key: 3,
               name: "第1步：即将进入倒计时广告，尝试跳过",
               matches: [
                 '[text$="即将进入广告"]',
@@ -108,8 +112,8 @@
               actionCd: 5000,
             },
             {
-              key: 1,
-              preKeys: [0],
+              key: 4,
+              preKeys: [3],
               name: '第2步：选择下一集',
               matches: '[name="android.widget.LinearLayout"][childCount=2] > [name="android.widget.GridView"] > [name="android.view.ViewGroup"][childCount=2] + [name="android.view.ViewGroup"]',
               actionCd: 5000,
