@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 11,
+  version: 12,
   author: "denis",
   apps: [
     {
@@ -61,7 +61,6 @@
       groups: [
         {
           key: 1,
-          actionCdKey: 1,
           fastQuery: true,
           name: "跳过小游戏",
           activityIds: [
@@ -72,8 +71,7 @@
             {
               action: "swipe",
               actionCd: 5000,
-              actionDelay: 500,
-              name: '没匹配倒计时-跳过短剧/小游戏',
+              name: '没匹配倒计时-跳过短剧/小游戏/直播',
               swipeArg: {
                 start: {
                   x: "screenWidth * 0.7",
@@ -86,15 +84,13 @@
                 duration: 100,
               },
               matches: [
-                '[text="上滑继续观看短剧"][visibleToUser=true]',
-                'FrameLayout[vid="container"][childCount=1][visibleToUser=true]',
+                'RecyclerView[childCount=3] > FrameLayout[index=1][childCount=1]',
               ],
             }
           ]
         },
         {
           key: 2,
-          actionCdKey: 1,
           fastQuery: true,
           name: "短剧广告自动上滑跳过已启动",
           desc: "红果短剧的广告是无跳过按钮的全屏视频，读秒结束后/广告出现时自动上滑进入下一集",
