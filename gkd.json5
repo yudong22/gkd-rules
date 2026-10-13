@@ -85,7 +85,7 @@
                 duration: 100,
               },
               anyMatches: [
-                '[text="上滑继续观看短剧"]',
+                '[text="上滑继续观看短剧"][visibleToUser=true]',
                 'ViewPager > RecyclerView[childCount=3] > FrameLayout[index=1][childCount=1]',
               ],
             }
@@ -104,7 +104,7 @@
               key: 3,
               name: "第1步：即将进入倒计时广告，尝试跳过",
               matches: [
-                '[text$="即将进入广告"]',
+                '[text$="即将进入广告"][visibleToUser=true]',
               ],
               actionCd: 5000,
             },
