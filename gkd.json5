@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 12,
+  version: 13,
   author: "denis",
   apps: [
     {
@@ -70,7 +70,8 @@
           rules: [
             {
               action: "swipe",
-              actionCd: 5000,
+              actionCd: 6000,
+              actionDelay: 1000,
               name: '没匹配倒计时-跳过短剧/小游戏/直播',
               swipeArg: {
                 start: {
@@ -84,7 +85,7 @@
                 duration: 100,
               },
               matches: [
-                'RecyclerView[childCount=3] > FrameLayout[index=1][childCount=1]',
+                'ViewPager > RecyclerView[childCount=3] > FrameLayout[index=1][childCount=1]',
               ],
             }
           ]
@@ -96,7 +97,6 @@
           desc: "红果短剧的广告是无跳过按钮的全屏视频，读秒结束后/广告出现时自动上滑进入下一集",
           activityIds: [
             "com.dragon.read.component.shortvideo.impl.ShortSeriesActivity",
-            "com.dragon.read.component.shortvideo.impl.fullscreen.ShortSeriesLandActivity",
           ],
           rules: [
             {
@@ -111,12 +111,13 @@
               key: 4,
               preKeys: [3],
               name: '第2步：选择下一集',
-              matches: '[name="android.widget.LinearLayout"][childCount=2] > [name="android.widget.GridView"] > [name="android.view.ViewGroup"][childCount=2] + [name="android.view.ViewGroup"]',
+              matches: 'GridView > ViewGroup[childCount=2] + ViewGroup[childCount=1]',
               actionCd: 5000,
-              actionDelay: 900,
+              actionDelay: 1000,
             },
           ],
         },
+        
       ],
     },
   ],
