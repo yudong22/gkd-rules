@@ -84,7 +84,8 @@
                 },
                 duration: 100,
               },
-              matches: [
+              anyMatches: [
+                '[text="上滑继续观看短剧"]',
                 'ViewPager > RecyclerView[childCount=3] > FrameLayout[index=1][childCount=1]',
               ],
             }
