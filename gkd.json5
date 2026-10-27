@@ -1,7 +1,7 @@
 {
   id: 10086,
   name: "我的自定义短剧订阅",
-  version: 13,
+  version: 14,
   author: "denis",
   apps: [
     {
@@ -70,8 +70,8 @@
           rules: [
             {
               action: "swipe",
-              actionCd: 6000,
-              actionDelay: 1000,
+              actionCd: 4000,
+              actionDelay: 1200,
               name: '没匹配倒计时-跳过短剧/小游戏/直播',
               swipeArg: {
                 start: {
@@ -114,7 +114,7 @@
               name: '第2步：选择下一集',
               matches: 'GridView > ViewGroup[childCount=2] + ViewGroup[childCount=1]',
               actionCd: 5000,
-              actionDelay: 1000,
+              actionDelay: 700,
             },
           ],
         },
